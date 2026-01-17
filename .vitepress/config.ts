@@ -21,9 +21,9 @@ export default withMermaid(defineConfig({
     // 导航栏
     nav: [
       { text: '首页', link: '/' },
-      { text: '知识管理', link: '/01-知识管理/' },
-      { text: '思想感悟', link: '/02-思想感悟/' },
-      { text: '探索世界', link: '/03-探索世界/' }
+      { text: '知识管理', link: '/01-知识管理' },
+      { text: '思想感悟', link: '/02-思想感悟' },
+      { text: '探索世界', link: '/03-探索世界' }
     ],
 
     // 侧边栏配置
@@ -32,7 +32,7 @@ export default withMermaid(defineConfig({
         {
           text: '知识管理',
           items: [
-            { text: '介绍', link: '/01-知识管理/' },
+            { text: '介绍', link: '/01-知识管理' },
             { text: '快速开始', link: '/01-知识管理/快速开始' }
           ]
         }
@@ -41,7 +41,7 @@ export default withMermaid(defineConfig({
         {
           text: '思想感悟',
           items: [
-            { text: '介绍', link: '/02-思想感悟/' },
+            { text: '介绍', link: '/02-思想感悟' },
             { text: '功能展示', link: '/02-思想感悟/功能展示' }
           ]
         },
@@ -63,7 +63,7 @@ export default withMermaid(defineConfig({
         {
           text: '探索世界',
           items: [
-            { text: '介绍', link: '/03-探索世界/' }
+            { text: '介绍', link: '/03-探索世界' }
           ]
         }
       ]
