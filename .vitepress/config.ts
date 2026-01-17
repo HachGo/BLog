@@ -9,9 +9,7 @@ export default withMermaid(defineConfig({
   cleanUrls: true,
   lastUpdated: true,
 
-  ignoreDeadLinks: [
-    (link) => link.includes('/02-技术笔记/功能展示')
-  ],
+  ignoreDeadLinks: true,
 
   // 排除发布的内容
   srcExclude: ['.obsidian/**'],
@@ -43,7 +41,21 @@ export default withMermaid(defineConfig({
         {
           text: '思想感悟',
           items: [
-            { text: '介绍', link: '/02-思想感悟/' }
+            { text: '介绍', link: '/02-思想感悟/' },
+            { text: '功能展示', link: '/02-思想感悟/功能展示' }
+          ]
+        },
+        {
+          text: '年度总结',
+          items: [
+            { text: '致逝去的2023', link: '/02-思想感悟/01_年度总结/致逝去的2023' },
+            { text: '致逝去的2024', link: '/02-思想感悟/01_年度总结/致逝去的2024' }
+          ]
+        },
+        {
+          text: '项目管理',
+          items: [
+            { text: '浅谈项目与项目管理', link: '/02-思想感悟/02_项目管理/002_浅谈项目与项目管理岗位' }
           ]
         }
       ],
