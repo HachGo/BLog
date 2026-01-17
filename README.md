@@ -169,7 +169,3 @@ export default defineConfig({
 - **GitHub Pages** - 网站托管
 - **Mermaid** - 图表渲染
 - **KaTeX** - 数学公式渲染
-
-## 许可证
-
-MIT License
