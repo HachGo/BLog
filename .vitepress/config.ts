@@ -3,11 +3,15 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
-  title: "我的知识库",
-  description: "一个基于Obsidian和VitePress的知识管理网站",
+  title: "Matrix Dream",
+  description: "记录走向梦想的旅程",
   lang: "zh-CN",
   cleanUrls: true,
   lastUpdated: true,
+
+  ignoreDeadLinks: [
+    (link) => link.includes('/02-技术笔记/功能展示')
+  ],
 
   // 排除发布的内容
   srcExclude: ['.obsidian/**'],
