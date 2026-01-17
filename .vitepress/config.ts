@@ -7,7 +7,6 @@ export default withMermaid(defineConfig({
   description: "记录走向梦想的旅程",
   lang: "zh-CN",
   base: '/',
-  cleanUrls: true,
   lastUpdated: true,
 
   ignoreDeadLinks: true,
