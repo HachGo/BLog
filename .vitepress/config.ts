@@ -33,7 +33,8 @@ export default withMermaid(defineConfig({
         // 知识管理
         documentRootPath: '.',
         scanStartPath: '01-知识管理',
-        resolvePath: '/01-知识管理',
+        resolvePath: '/01-知识管理/',
+        basePath: '/01-知识管理/',
         excludeByGlobPattern: ['**/index.md'],
         sortMenusOrderNumericallyFromTitle: true,
         collapsed: false,
@@ -44,7 +45,8 @@ export default withMermaid(defineConfig({
         // 思想感悟
         documentRootPath: '.',
         scanStartPath: '02-思想感悟',
-        resolvePath: '/02-思想感悟',
+        resolvePath: '/02-思想感悟/',
+        basePath: '/02-思想感悟/',
         excludeByGlobPattern: ['**/index.md'],
         sortMenusOrderNumericallyFromTitle: true,
         collapsed: false,
@@ -55,7 +57,8 @@ export default withMermaid(defineConfig({
         // 探索世界
         documentRootPath: '.',
         scanStartPath: '03-探索世界',
-        resolvePath: '/03-探索世界',
+        resolvePath: '/03-探索世界/',
+        basePath: '/03-探索世界/',
         excludeByGlobPattern: ['**/index.md'],
         sortMenusOrderNumericallyFromTitle: true,
         collapsed: false,
