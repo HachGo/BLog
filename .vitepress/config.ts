@@ -20,8 +20,8 @@ export default withMermaid(defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '知识管理', link: '/01-知识管理/' },
-      { text: '技术笔记', link: '/02-技术笔记/' },
-      { text: '读书笔记', link: '/03-读书笔记/' }
+      { text: '游戏设计', link: '/02-游戏设计/' },
+      { text: '生命中事', link: '/03-生命中事/' }
     ],
 
     // 侧边栏配置
@@ -35,20 +35,20 @@ export default withMermaid(defineConfig({
           ]
         }
       ],
-      '/02-技术笔记/': [
+      '/02-游戏设计/': [
         {
-          text: '技术笔记',
+          text: '游戏设计',
           items: [
-            { text: '介绍', link: '/02-技术笔记/' },
-            { text: '功能展示', link: '/02-技术笔记/功能展示' }
+            { text: '介绍', link: '/02-游戏设计/' },
+            { text: '功能展示', link: '/02-游戏设计/功能展示' }
           ]
         }
       ],
-      '/03-读书笔记/': [
+      '/03-生命中事/': [
         {
-          text: '读书笔记',
+          text: '生命中事',
           items: [
-            { text: '介绍', link: '/03-读书笔记/' }
+            { text: '介绍', link: '/03-生命中事/' }
           ]
         }
       ]
