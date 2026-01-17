@@ -103,6 +103,9 @@ export default withMermaid(defineConfig({
   markdown: {
     theme: 'dracula',
     lineNumbers: true,
+    anchor: {
+      permalink: false
+    },
 
     math: {
       inline: ['$', '\\('],

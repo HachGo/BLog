@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: 探索世界，体验生命的美好旅程
-  text: 愿每一个生命都能找到属于自己的独一无二的生命旅程
-  tagline: 当我们决定向远方出发之时，我们绝不是孤身一人
+  name: 探索世界
+  text: 体验生命的旅程
+  tagline: 愿每一个生命都能找到属于自己的独一无二的生命旅程
   actions:
     - theme: brand
       text: 快速开始
