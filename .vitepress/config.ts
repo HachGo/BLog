@@ -6,7 +6,7 @@ export default withMermaid(defineConfig({
   title: "Matrix Dream",
   description: "记录走向梦想的旅程",
   lang: "zh-CN",
-  base: '/BLog/',
+  base: '/',
   cleanUrls: true,
   lastUpdated: true,
 
