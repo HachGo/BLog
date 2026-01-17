@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+dist/
+dist-ssr/
+
+# VitePress
+.vitepress/dist/
+.vitepress/cache/
+
+# Obsidian
+.obsidian/workspace.json
+.obsidian/graph.json
+.obsidian/*.sqlite
+.obsidian/*.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
