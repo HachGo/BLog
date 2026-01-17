@@ -26,6 +26,7 @@ features:
     title: 探索世界
     details: 记录自己探索世界，体验生命历程的一些重要瞬间
     link: /03-探索世界
+---
 
 <div class="nav-grid">
   <a href="/DEPLOY.md">部署指南</a>
