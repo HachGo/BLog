@@ -3,8 +3,6 @@ name: Deploy VitePress site to Pages
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - '**.md'  # 忽略纯文档更新时的构建（可选）
   workflow_dispatch:
 
 # 设置 GITHUB_TOKEN 权限
@@ -70,7 +68,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: vitepress-site
+          name: github-pages
           path: .vitepress/dist
 
       - name: Deploy to GitHub Pages
