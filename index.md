@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: 我的知识库
-  text: Obsidian + VitePress
-  tagline: 记录学习，构建知识体系
+  name: Matrix Dream
+  text: 记录走向梦想的旅程
+  tagline: 当我们决定向着远方出发之时，我们绝不是孤身一人
   actions:
     - theme: brand
       text: 快速开始
@@ -129,9 +129,9 @@ $E = mc^2$
 
 <div class="nav-grid">
 
-- [部署指南](/DEPLOY.md)
-- [项目结构](/README.md)
-- [GitHub 仓库](https://github.com/HachGo/BLog)
+<span>[部署指南](/DEPLOY.md)</span>
+<span>[项目结构](/README.md)</span>
+<span>[GitHub 仓库](https://github.com/HachGo/BLog)</span>
 
 </div>
 
