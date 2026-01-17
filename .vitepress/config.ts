@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { generateSidebar } from 'vitepress-sidebar'
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid(defineConfig({
@@ -26,48 +27,42 @@ export default withMermaid(defineConfig({
       { text: '探索世界', link: '/03-探索世界' }
     ],
 
-    // 侧边栏配置
-    sidebar: {
-      '/01-知识管理/': [
-        {
-          text: '知识管理',
-          items: [
-            { text: '介绍', link: '/01-知识管理' },
-            { text: '快速开始', link: '/01-知识管理/快速开始' }
-          ]
-        }
-      ],
-      '/02-思想感悟/': [
-        {
-          text: '思想感悟',
-          items: [
-            { text: '介绍', link: '/02-思想感悟' },
-            { text: '功能展示', link: '/02-思想感悟/功能展示' }
-          ]
-        },
-        {
-          text: '年度总结',
-          items: [
-            { text: '致逝去的2023', link: '/02-思想感悟/01_年度总结/致逝去的2023' },
-            { text: '致逝去的2024', link: '/02-思想感悟/01_年度总结/致逝去的2024' }
-          ]
-        },
-        {
-          text: '项目管理',
-          items: [
-            { text: '浅谈项目与项目管理', link: '/02-思想感悟/02_项目管理/002_浅谈项目与项目管理岗位' }
-          ]
-        }
-      ],
-      '/03-探索世界/': [
-        {
-          text: '探索世界',
-          items: [
-            { text: '介绍', link: '/03-探索世界' }
-          ]
-        }
-      ]
-    },
+    // 自动生成侧边栏
+    sidebar: generateSidebar([
+      {
+        // 知识管理
+        documentRootPath: '.',
+        scanStartPath: '01-知识管理',
+        resolvePath: '/01-知识管理',
+        excludeByGlobPattern: ['**/index.md'],
+        sortMenusOrderNumericallyFromTitle: true,
+        collapsed: false,
+        includeFolderIndexFile: true,
+        useFolderTitleFromIndexFile: true
+      },
+      {
+        // 思想感悟
+        documentRootPath: '.',
+        scanStartPath: '02-思想感悟',
+        resolvePath: '/02-思想感悟',
+        excludeByGlobPattern: ['**/index.md'],
+        sortMenusOrderNumericallyFromTitle: true,
+        collapsed: false,
+        includeFolderIndexFile: true,
+        useFolderTitleFromIndexFile: true
+      },
+      {
+        // 探索世界
+        documentRootPath: '.',
+        scanStartPath: '03-探索世界',
+        resolvePath: '/03-探索世界',
+        excludeByGlobPattern: ['**/index.md'],
+        sortMenusOrderNumericallyFromTitle: true,
+        collapsed: false,
+        includeFolderIndexFile: true,
+        useFolderTitleFromIndexFile: true
+      }
+    ]),
 
     // 社交链接
     socialLinks: [
