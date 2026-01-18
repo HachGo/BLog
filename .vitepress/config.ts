@@ -24,7 +24,8 @@ export default withMermaid(defineConfig({
       { text: '首页', link: '/' },
       { text: '知识管理', link: '/01-知识管理' },
       { text: '思想感悟', link: '/02-思想感悟' },
-      { text: '探索世界', link: '/03-探索世界' }
+      { text: '探索世界', link: '/03-探索世界' },
+      { text: '资源库', link: '/04-资源库' }
     ],
 
     // 自动生成侧边栏
@@ -59,6 +60,18 @@ export default withMermaid(defineConfig({
         scanStartPath: '03-探索世界',
         resolvePath: '/03-探索世界/',
         basePath: '/03-探索世界/',
+        excludeByGlobPattern: ['**/index.md'],
+        sortMenusOrderNumericallyFromTitle: true,
+        collapsed: false,
+        includeFolderIndexFile: true,
+        useFolderTitleFromIndexFile: true
+      },
+      {
+        // 资源库
+        documentRootPath: '.',
+        scanStartPath: '04-资源库',
+        resolvePath: '/04-资源库/',
+        basePath: '/04-资源库/',
         excludeByGlobPattern: ['**/index.md'],
         sortMenusOrderNumericallyFromTitle: true,
         collapsed: false,
