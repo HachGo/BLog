@@ -287,19 +287,118 @@ git push origin main
 
 ---
 
-## 七、注意事项
+## 七、排查与修复经验
 
-### 7.1 发布前检查
+### 7.1 搜索框点击无效问题
+
+**问题现象**：搜索栏右侧灰色区域点击无效
+
+**原因分析**：
+- VitePress 本地搜索使用 `DocSearch-Button` 组件，而非 `.VPNavBarSearch`
+
+**解决方案**：
+```css
+/* 正确选择器 */
+.DocSearch-Button {
+  border-radius: 8px;
+  background: var(--vp-c-bg-alt);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.DocSearch-Button:hover {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-brand-1);
+}
+```
+
+### 7.2 本地搜索索引为空问题
+
+**问题现象**：搜索功能无法返回任何结果，构建产物中搜索索引为 `documentCount: 0`
+
+**原因分析（VitePress Bug）**：
+以下配置会导致本地搜索索引生成失败：
+
+| 问题配置 | 影响 |
+|---------|------|
+| `anchor: { permalink: false }` | 搜索索引为空 |
+| `chart: true` | 搜索索引为空 |
+| `vitepress-plugin-mermaid` 插件 | 搜索索引为空 |
+
+**解决方案**：
+```typescript
+// ❌ 错误：会导致搜索索引为空
+markdown: {
+  anchor: { permalink: false }
+}
+
+// ✅ 正确：使用 relative 或其他值
+markdown: {
+  anchor: { permalink: 'relative' }
+}
+
+// ❌ 避免：chart: true
+markdown: {
+  chart: true  // 导致搜索索引为空
+}
+
+// ✅ 已移除 vitepress-plugin-mermaid
+// 使用 VitePress 内置 Mermaid 支持
+```
+
+### 7.3 配置文件编码问题
+
+**问题现象**：构建时报 `Expected "}" but found "]"` 语法错误
+
+**原因**：中文字符与某些配置组合可能产生编码问题
+
+**解决方案**：
+- 使用 ASCII 字符作为对象 key（如 sidebar 路径）
+- 避免复杂的嵌套注释
+- 配置尽量简洁，不要过度嵌套
+
+### 7.4 排查方法
+
+**搜索索引检查**：
+```bash
+# 构建后检查搜索索引文件
+cat .vitepress/dist/assets/chunks/@localSearchIndexroot.*.js
+
+# 正常应包含 documentCount: >0
+# {"documentCount":186,...}
+```
+
+**本地开发测试**：
+```bash
+# 清理缓存并重新构建
+rm -rf .vitepress/dist .vitepress/cache
+npm run docs:build
+
+# 启动开发服务器测试
+npm run docs:dev
+```
+
+---
+
+## 八、注意事项
+
+### 8.1 发布前检查
 - [ ] GitHub 链接已更新为实际仓库地址
 - [ ] 本地测试通过 `npm run docs:build`
 - [ ] 无敏感信息泄露
+- [ ] 搜索功能测试通过
 
-### 7.2 文件排除
+### 8.2 配置禁忌
+- 禁止使用 `anchor: { permalink: false }`
+- 避免使用 `chart: true`
+- 谨慎使用第三方插件（先测试搜索功能）
+
+### 8.3 文件排除
 - `.obsidian/` 目录不会发布
 - `node_modules/` 不会发布
 - `.gitignore` 中文件不会指定的发布
 
-### 7.3 扩展功能（待实现）
+### 8.4 扩展功能（待实现）
 - [ ] 多语言支持（中英文）
 - [ ] 评论系统（Giscus）
 - [ ] Google Analytics 分析
@@ -307,7 +406,7 @@ git push origin main
 
 ---
 
-## 八、相关文档
+## 九、相关文档
 
 - [README.md](./README.md) - 项目说明
 - [DEPLOY.md](./DEPLOY.md) - 部署指南
