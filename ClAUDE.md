@@ -37,14 +37,19 @@ BLog/
 │       ├── sidebar.ts          # 侧边栏生成
 │       ├── obsidian-adapter.ts # Obsidian语法适配
 │       └── posts.data.js       # 首页文章数据
-├── 📁 01-知识管理/             # 笔记分类目录
-│   ├── README.md
-│   └── 快速开始.md
-├── 📁 02-技术笔记/             # 技术笔记
-│   ├── README.md
-│   └── 功能展示.md             # 功能演示页面
-├── 📁 03-读书笔记/             # 读书笔记
-│   └── README.md
+├── 📁 01-知识管理/             # 知识管理相关笔记
+├── 📁 02-思想感悟/             # 思想感悟与思考
+├── 📁 03-探索世界/             # 探索世界相关内容
+├── 📁 04-资源库/               # 各类优质资源导航
+│   ├── 01_技术学习.md
+│   ├── 02_新闻媒体.md
+│   ├── 03_创意设计.md
+│   ├── 04_生活服务.md
+│   ├── 05_娱乐休闲.md
+│   ├── 06_工具资源.md
+│   ├── 07_数据库运维.md
+│   ├── 08_学术研究.md
+│   └── index.md                # 资源库首页导航
 ├── .editorconfig               # 编辑器配置
 ├── .gitignore                  # Git忽略规则
 ├── DEPLOY.md                   # 部署指南
@@ -98,8 +103,9 @@ BLog/
    - 搜索框（本地搜索）
 
 3. **侧边栏配置**
-   - 手动配置各分类目录
-   - 支持多级嵌套
+   - 使用 vitepress-sidebar 自动生成
+   - 支持按数字排序（sortMenusOrderNumericallyFromTitle）
+   - 支持文件夹索引页面
 
 4. **功能配置**
    - 本地搜索
@@ -192,36 +198,17 @@ BLog/
 - [x] 移动端体验优化
 - [x] 功能展示页面（02-技术笔记/功能展示.md）
 
-### 4.2 待用户配置项
+#### 第五阶段：内容扩展 ✅ 已完成
+- [x] 新增04-资源库分类目录
+- [x] 创建资源库首页导航页面
+- [x] 配置资源库侧边栏和导航
 
-**部署前需要修改的配置：**
+### 4.2 站点配置
 
-1. `.vitepress/config.ts`
-   ```typescript
-   // 第57-58行：GitHub 仓库地址
-   socialLinks: [
-     { icon: 'github', link: 'https://github.com/YOUR_USERNAME/YOUR_REPO' }
-   ],
-   // 第70-71行：编辑链接
-   editLink: {
-     pattern: 'https://github.com/YOUR_USERNAME/YOUR_REPO/edit/main/:path',
-   }
-   ```
-
-2. `README.md`
-   ```markdown
-   - [GitHub 仓库](https://github.com/YOUR_USERNAME/YOUR_REPO)
-   ```
-
-3. `index.md`
-   ```markdown
-   - [GitHub 仓库](https://github.com/YOUR_USERNAME/YOUR_REPO)
-   ```
-
-4. `.vitepress/public/CNAME`（如需自定义域名）
-   ```
-   your-domain.com
-   ```
+**当前配置（已配置完成）：**
+- GitHub 仓库：https://github.com/HachGo/BLog
+- 编辑链接：已配置
+- 自定义域名：如有需要，编辑 `.vitepress/public/CNAME`
 
 ---
 

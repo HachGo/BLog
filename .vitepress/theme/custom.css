@@ -286,10 +286,55 @@ html:not(.dark) {
 .VPNavBarSearch {
   border-radius: 10px;
   background: var(--vp-c-bg-alt);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .VPNavBarSearch:hover {
   background: var(--vp-c-bg-soft);
+}
+
+/* 确保搜索框占位符区域可点击 */
+.VPNavBarSearch .SearchBox {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* 搜索提示文字样式 */
+.VPNavBarSearch .placeholder-text {
+  pointer-events: none;
+}
+
+/* 修复搜索框焦点样式 */
+.VPNavBarSearch.focus {
+  background: var(--vp-c-bg-soft);
+  box-shadow: 0 0 0 2px var(--vp-c-brand-1);
+}
+
+/* 搜索弹窗遮罩层 */
+.VPModal {
+  cursor: default;
+}
+
+/* 确保搜索输入框在整个区域内可聚焦 */
+.VPNavBarSearch input {
+  cursor: text;
+  pointer-events: auto;
+}
+
+/* 修复本地搜索弹窗中的搜索框 */
+.VPSearchBox {
+  width: 100%;
+}
+
+.VPSearchBox .search-input {
+  cursor: text;
+  pointer-events: auto;
+}
+
+/* 搜索结果项 */
+.VPSearchMatch {
+  cursor: pointer;
 }
 
 /* ===========================================
