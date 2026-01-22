@@ -280,61 +280,116 @@ html:not(.dark) {
 }
 
 /* ===========================================
-   搜索框样式
+   搜索框样式 - DocSearch 按钮样式
    =========================================== */
 
 .VPNavBarSearch {
   border-radius: 10px;
   background: var(--vp-c-bg-alt);
+}
+
+/* DocSearch 按钮样式 */
+.DocSearch-Button {
+  border-radius: 8px;
+  background: var(--vp-c-bg-alt);
   cursor: pointer;
   transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
-.VPNavBarSearch:hover {
+.DocSearch-Button:hover {
   background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-brand-1);
 }
 
-/* 确保搜索框占位符区域可点击 */
-.VPNavBarSearch .SearchBox {
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-/* 搜索提示文字样式 */
-.VPNavBarSearch .placeholder-text {
-  pointer-events: none;
-}
-
-/* 修复搜索框焦点样式 */
-.VPNavBarSearch.focus {
-  background: var(--vp-c-bg-soft);
+.DocSearch-Button:focus {
+  outline: none;
   box-shadow: 0 0 0 2px var(--vp-c-brand-1);
 }
 
+/* 确保按钮可点击 */
+.DocSearch-Button {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 220px;
+  height: 40px;
+  margin: 0;
+}
+
 /* 搜索弹窗遮罩层 */
-.VPModal {
+.DocSearch-Container {
+  z-index: 9999;
   cursor: default;
 }
 
-/* 确保搜索输入框在整个区域内可聚焦 */
-.VPNavBarSearch input {
-  cursor: text;
-  pointer-events: auto;
+/* 搜索弹窗主体 */
+.DocSearch-Modal {
+  background: var(--vp-c-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* 修复本地搜索弹窗中的搜索框 */
-.VPSearchBox {
-  width: 100%;
+/* 搜索输入框 */
+.DocSearch-Form {
+  background: var(--vp-c-bg-alt);
+  border-radius: 8px;
 }
 
-.VPSearchBox .search-input {
-  cursor: text;
-  pointer-events: auto;
+.DocSearch-Input {
+  background: transparent;
+  color: var(--vp-c-text-1);
 }
 
-/* 搜索结果项 */
-.VPSearchMatch {
-  cursor: pointer;
+.DocSearch-Input::placeholder {
+  color: var(--vp-c-text-3);
+}
+
+/* 搜索结果 */
+.DocSearch-Hits {
+  background: var(--vp-c-bg);
+}
+
+.DocSearch-Hit {
+  border-radius: 8px;
+}
+
+.DocSearch-Hit:hover,
+.DocSearch-Hit:focus {
+  background: var(--vp-c-bg-alt);
+}
+
+.DocSearch-Hit-title {
+  color: var(--vp-c-text-1);
+}
+
+.DocSearch-Hit-path {
+  color: var(--vp-c-text-2);
+}
+
+/* 搜索高亮 */
+.DocSearch-Highlight {
+  background: rgba(92, 124, 250, 0.3);
+  color: var(--vp-c-brand-1);
+}
+
+/* 空状态 */
+.DocSearch-StartScreen {
+  color: var(--vp-c-text-2);
+}
+
+/* 键盘快捷键样式 */
+.DocSearch-Button-Keys {
+  display: flex;
+  gap: 4px;
+}
+
+.DocSearch-Button-Key {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  color: var(--vp-c-text-2);
 }
 
 /* ===========================================
