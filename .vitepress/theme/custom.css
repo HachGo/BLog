@@ -280,26 +280,82 @@ html:not(.dark) {
 }
 
 /* ===========================================
-   搜索框样式 - DocSearch 按钮样式
+   搜索框样式 - 修复点击区域问题
    =========================================== */
 
+/* 搜索栏容器 - 确保占满宽度 */
 .VPNavBarSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 280px;
   border-radius: 10px;
-  background: var(--vp-c-bg-alt);
-}
-
-/* DocSearch 按钮样式 */
-.DocSearch-Button {
-  border-radius: 8px;
   background: var(--vp-c-bg-alt);
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid transparent;
+  padding: 4px 12px;
+  min-height: 40px;
 }
 
-.DocSearch-Button:hover {
+.VPNavBarSearch:hover {
   background: var(--vp-c-bg-soft);
-  border-color: var(--vp-c-brand-1);
+  border: 1px solid var(--vp-c-brand-1);
+}
+
+/* DocSearch 按钮 - 扩展到全宽 */
+.DocSearch-Button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  min-height: 32px;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 搜索图标 */
+.DocSearch-Button-Icon {
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+/* 搜索占位符文本 */
+.DocSearch-Button-Placeholder {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 键盘快捷键 */
+.DocSearch-Button-Keys {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.DocSearch-Button-Key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 18px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 0.65rem;
+  color: var(--vp-c-text-2);
 }
 
 .DocSearch-Button:focus {
@@ -307,13 +363,9 @@ html:not(.dark) {
   box-shadow: 0 0 0 2px var(--vp-c-brand-1);
 }
 
-/* 确保按钮可点击 */
-.DocSearch-Button {
-  pointer-events: auto;
-  width: 100%;
-  max-width: 220px;
-  height: 40px;
-  margin: 0;
+.DocSearch-Button:active,
+.DocSearch-Button:focus {
+  background: var(--vp-c-bg-soft);
 }
 
 /* 搜索弹窗遮罩层 */
@@ -374,21 +426,6 @@ html:not(.dark) {
 
 /* 空状态 */
 .DocSearch-StartScreen {
-  color: var(--vp-c-text-2);
-}
-
-/* 键盘快捷键样式 */
-.DocSearch-Button-Keys {
-  display: flex;
-  gap: 4px;
-}
-
-.DocSearch-Button-Key {
-  background: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 0.75rem;
   color: var(--vp-c-text-2);
 }
 
