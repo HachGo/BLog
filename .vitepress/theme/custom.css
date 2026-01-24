@@ -295,25 +295,17 @@ html:not(.dark) {
   .VPNavBarSearch {
     position: fixed;
     left: 50%;
-    top: 32px;
+    top: 32px; /* 导航栏高度的一半，确保垂直居中 */
     transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: var(--vp-layout-max-width, 1440px); /* 匹配页面最大布局宽度 */
-    padding: 0 32px; /* 与导航栏两侧边距保持一致 */
-    box-sizing: border-box;
+    width: 480px; /* 增加宽度使其不显得拥挤 */
     z-index: 100;
     pointer-events: none;
   }
 
   .VPNavBarSearch .DocSearch-Button {
     pointer-events: auto;
-    height: 40px;
-    width: 100%; /* 使其充满容器 */
-    max-width: 720px; /* 在超大屏幕上限制一个合理的搜索框宽度，避免过长 */
-    margin: 0 auto; /* 保持在导航区域中心 */
-    background-color: var(--vp-c-bg-soft);
-    border: 1px solid var(--vp-c-divider);
-    padding: 0 16px;
+    height: 42px; /* 稍微增加高度 */
+    padding: 0 16px; /* 增加内部边距 */
   }
 }
 
