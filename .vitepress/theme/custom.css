@@ -290,17 +290,18 @@ html:not(.dark) {
   padding: 0;
 }
 
+/* 桌面端居中且加宽 */
 @media (min-width: 960px) {
   .VPNavBarSearch {
-    position: fixed; /* 使用 fixed 确保在 navbar 内部稳固 */
+    position: absolute;
     left: 50%;
-    top: var(--vp-nav-height, 64px); /* 基于导航栏高度垂直居中 */
-    margin-top: calc(var(--vp-nav-height, 64px) / -2); /* 负边距回拉一半高度 */
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 500px;
-    z-index: 100;
-    pointer-events: none; /* 容器本身不阻挡点击，子元素恢复 */
+    max-width: 400px; /* 稍微减小宽度以防止在窄屏下遮挡导航链接 */
+    z-index: 10;
+    pointer-events: none;
+    margin-top: 2px; /* 增加一点顶部间距 */
   }
 
   .VPNavBarSearch .DocSearch-Button {
