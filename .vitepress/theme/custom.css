@@ -293,19 +293,19 @@ html:not(.dark) {
 /* 桌面端居中且加宽 */
 @media (min-width: 960px) {
   .VPNavBarSearch {
-    position: absolute;
+    position: fixed;
     left: 50%;
-    top: 50%;
+    top: 32px; /* 导航栏高度的一半，确保垂直居中 */
     transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 400px; /* 稍微减小宽度以防止在窄屏下遮挡导航链接 */
-    z-index: 10;
+    width: 480px; /* 增加宽度使其不显得拥挤 */
+    z-index: 100;
     pointer-events: none;
-    margin-top: 2px; /* 增加一点顶部间距 */
   }
 
   .VPNavBarSearch .DocSearch-Button {
-    pointer-events: auto; /* 恢复按钮点击 */
+    pointer-events: auto;
+    height: 42px; /* 稍微增加高度 */
+    padding: 0 16px; /* 增加内部边距 */
   }
 }
 
@@ -350,12 +350,12 @@ html:not(.dark) {
 .DocSearch-Button-Container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px; /* 增加间距 */
 }
 
 .DocSearch-Search-Icon {
-  width: 16px;
-  height: 16px;
+  width: 18px; /* 稍微加大图标 */
+  height: 18px;
   color: var(--vp-c-text-2);
   transition: color 0.2s ease;
 }
