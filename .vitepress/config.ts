@@ -42,6 +42,8 @@ export default defineConfig({
         text: '资源库',
         items: [
           { text: '技术学习', link: '/04-资源库/01_技术学习' },
+          { text: 'Linux 软件清单', link: '/04-资源库/Linux软件清单' },
+          { text: 'Win 必备软件清单', link: '/04-资源库/win必备软件清单' },
           { text: '新闻媒体', link: '/04-资源库/02_新闻媒体' },
           { text: '创意设计', link: '/04-资源库/03_创意设计' },
           { text: '生活服务', link: '/04-资源库/04_生活服务' },
@@ -62,7 +64,6 @@ export default defineConfig({
   markdown: {
     theme: 'dracula',
     lineNumbers: true,
-    anchor: { permalink: 'relative' },
     math: { inline: ['$', '\\('], block: ['$$', '\\]', 'beginollars', 'endollars'] },
     container: { tip: '提示', warning: '注意', danger: '警告', info: '信息', details: '详情' }
   }
