@@ -280,27 +280,34 @@ html:not(.dark) {
 }
 
 /* ===========================================
-   搜索框样式 - 修复点击区域问题
+   搜索框样式 - 修复点击区域问题 & 居中优化
    =========================================== */
 
-/* 搜索栏容器 - 确保占满宽度 */
+/* 搜索栏容器 */
 .VPNavBarSearch {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 280px;
-  border-radius: 10px;
-  background: var(--vp-c-bg-alt);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 4px 12px;
-  min-height: 40px;
 }
 
-.VPNavBarSearch:hover {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-brand-1);
+/* 桌面端居中且加宽 */
+@media (min-width: 960px) {
+  .VPNavBarSearch {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px;
+    z-index: 10;
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 959px) {
+  .VPNavBarSearch {
+    flex-grow: 1;
+    margin-left: 16px;
+  }
 }
 
 /* DocSearch 按钮 - 扩展到全宽 */
@@ -309,15 +316,20 @@ html:not(.dark) {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
-  min-height: 32px;
-  border-radius: 6px;
-  background: transparent;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--vp-c-bg-alt);
+  border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: none;
-  padding: 0;
+  padding: 0 12px;
   margin: 0;
+}
+
+.DocSearch-Button:hover {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 0 0 2px var(--vp-c-brand-soft);
 }
 
 /* 搜索图标 */
