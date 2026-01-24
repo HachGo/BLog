@@ -290,22 +290,21 @@ html:not(.dark) {
   padding: 0;
 }
 
-/* 桌面端居中且加宽 */
+/* 桌面端搜索框宽度 */
 @media (min-width: 960px) {
   .VPNavBarSearch {
-    position: fixed;
-    left: 50%;
-    top: 32px; /* 导航栏高度的一半，确保垂直居中 */
-    transform: translate(-50%, -50%);
-    width: 480px; /* 增加宽度使其不显得拥挤 */
-    z-index: 100;
-    pointer-events: none;
+    flex-grow: 1;
+    padding-left: 32px;
+    max-width: 100%;
   }
 
   .VPNavBarSearch .DocSearch-Button {
     pointer-events: auto;
-    height: 42px; /* 稍微增加高度 */
-    padding: 0 16px; /* 增加内部边距 */
+    height: 42px;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 1200px; /* 搜索框最大宽度匹配导航区域 */
+    margin: 0 auto;
   }
 }
 
