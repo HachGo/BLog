@@ -29,15 +29,15 @@ features:
 ---
 
 <div class="nav-grid">
-  <a href="/DEPLOY.md">部署指南</a>
-  <a href="/README.md">项目结构</a>
-  <a href="https://github.com/HachGo/BLog">GitHub 仓库</a>
+  <a href="/DEPLOY.md">部署指南 <span class="arrow">→</span></a>
+  <a href="/README.md">项目结构 <span class="arrow">→</span></a>
+  <a href="https://github.com/HachGo/BLog">GitHub 仓库 <span class="arrow">→</span></a>
 </div>
 
 <style>
 .nav-grid {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   justify-content: center;
   margin-top: 48px;
   padding-top: 32px;
@@ -45,12 +45,34 @@ features:
 }
 
 .nav-grid a {
-  color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-2);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .nav-grid a:hover {
-  text-decoration: underline;
+  color: var(--vp-c-text-1);
+}
+
+.nav-grid a .arrow {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.nav-grid a:hover .arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .nav-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
 }
 </style>
