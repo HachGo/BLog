@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Exclude internal VitePress assets and system files
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+
+# Point AI Agents and Crawlers to standard endpoints
+Sitemap: https://godream.show/sitemap.xml
+Host: https://godream.show

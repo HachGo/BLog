@@ -13,13 +13,13 @@
   --vp-c-brand-3: #228be6;
   --vp-c-brand-soft: rgba(77, 171, 247, 0.08);
 
-  /* 首页标题 - 纯色，不用渐变 */
-  --vp-home-hero-name-color: var(--vp-c-text-1);
-  --vp-home-hero-name-background: none;
+  /* 首页标题 - 渐变高亮 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-3) 100%);
 
-  /* 首页 Hero 背景光晕 - 极淡 */
-  --vp-home-hero-image-background-image: none;
-  --vp-home-hero-image-filter: none;
+  /* 首页 Hero 背景光晕 - 开启 */
+  --vp-home-hero-image-background-image: radial-gradient(50% 50% at 50% 50%, var(--vp-c-brand-soft) 0%, transparent 100%);
+  --vp-home-hero-image-filter: blur(60px);
 
   /* 字体 */
   --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -87,24 +87,46 @@ button,
 }
 
 /* ===========================================
-   首页 Hero 区域
+   首页 Hero 区域 - 质感升级
    =========================================== */
 
-/* 主标题 - 印刷级排版 */
+.VPHero {
+  position: relative;
+  margin-top: 2rem;
+}
+
+/* 主标题 - 印刷级排版 + 渐变 */
 .VPHero .name {
-  font-size: 3.2rem !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.04em;
+  font-size: 3.8rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.05em;
   line-height: 1.1 !important;
+}
+
+/* 增加主标题后的柔和光晕背板 */
+.VPHero .name::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: var(--vp-c-brand-1);
+  filter: blur(120px);
+  opacity: 0.15;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* 副标题 */
 .VPHero .text {
-  font-size: 2rem !important;
-  font-weight: 300 !important;
+  font-size: 2.2rem !important;
+  font-weight: 400 !important;
   letter-spacing: -0.02em;
   color: var(--vp-c-text-2) !important;
   line-height: 1.3 !important;
+  margin-top: 12px;
 }
 
 /* 描述语 */
@@ -155,51 +177,132 @@ button,
 }
 
 /* ===========================================
-   Feature 卡片 - 极简透明
+   Feature 卡片 - 高级现代质感 + 彩色顶条
    =========================================== */
+
+/* 卡片基础样式 */
 .VPFeatures .VPFeature {
-  border: 1px solid transparent !important;
-  background: transparent !important;
-  border-radius: 12px;
-  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider) !important;
+  background: var(--vp-c-bg) !important;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
+.dark .VPFeatures .VPFeature {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 彩色顶部渐变条 */
+.VPFeatures .VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 知识管理 - 蓝色 */
+.VPFeatures .VPFeature:nth-child(1)::before {
+  background: linear-gradient(90deg, #4dabf7, #339af0);
+}
+
+/* 思想感悟 - 紫色 */
+.VPFeatures .VPFeature:nth-child(2)::before {
+  background: linear-gradient(90deg, #da77f2, #be4bdb);
+}
+
+/* 探索世界 - 绿色 */
+.VPFeatures .VPFeature:nth-child(3)::before {
+  background: linear-gradient(90deg, #69db7c, #40c057);
+}
+
+/* Hover 效果 */
 .VPFeatures .VPFeature:hover {
-  background: var(--vp-c-bg-soft) !important;
-  border-color: var(--vp-c-divider) !important;
-  transform: none;
-  box-shadow: none;
+  background: var(--vp-c-bg) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+}
+
+.dark .VPFeatures .VPFeature:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.VPFeatures .VPFeature:hover::before {
+  height: 5px;
 }
 
 /* Feature 卡片标题 */
 .VPFeature .title {
-  font-size: 1.1rem !important;
-  font-weight: 600;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--vp-c-text-1);
+  margin-top: 16px;
 }
 
 /* Feature 卡片描述 */
 .VPFeature .details {
   color: var(--vp-c-text-2);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-top: 12px;
 }
 
-/* Feature 图标背景 → 去掉默认彩色背景 */
+/* Feature 图标背景 */
 .VPFeature .icon {
   background: var(--vp-c-bg-soft);
-  border-radius: 8px;
+  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 知识管理图标 hover */
+.VPFeatures .VPFeature:nth-child(1):hover .icon {
+  transform: scale(1.15) rotate(-4deg);
+  background: rgba(77, 171, 247, 0.12);
+}
+
+/* 思想感悟图标 hover */
+.VPFeatures .VPFeature:nth-child(2):hover .icon {
+  transform: scale(1.15) rotate(-4deg);
+  background: rgba(218, 119, 242, 0.12);
+}
+
+/* 探索世界图标 hover */
+.VPFeatures .VPFeature:nth-child(3):hover .icon {
+  transform: scale(1.15) rotate(-4deg);
+  background: rgba(105, 219, 124, 0.12);
 }
 
 /* ===========================================
-   导航栏 - 干净纯色
+   导航栏 - 毛玻璃质感
    =========================================== */
 .VPNav {
   border-bottom: 1px solid var(--vp-c-divider) !important;
 }
 
 .VPNavBar {
-  background: var(--vp-c-bg) !important;
-  backdrop-filter: none !important;
+  background: rgba(var(--vp-c-bg-rgb, 248, 252, 253), 0.85) !important;
+  backdrop-filter: blur(12px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
+}
+
+.dark .VPNavBar {
+  background: rgba(11, 19, 26, 0.85) !important;
 }
 
 .VPNavBarMenuLink.active {
@@ -212,17 +315,27 @@ button,
 }
 
 /* ===========================================
-   搜索框 - 极简样式
+   搜索框 - 宽度自适应优化
    =========================================== */
 .VPNavBarSearch {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 768px) {
   .VPNavBarSearch {
-    flex-grow: 1;
     padding-left: 24px;
+  }
+  .VPNavBarSearch .DocSearch-Button {
+    width: 100%;
+    max-width: 240px;
+    margin: 0;
+    border-radius: 8px;
+    transition: max-width 0.3s ease;
+  }
+  .VPNavBarSearch .DocSearch-Button:hover {
+    max-width: 280px; /* 悬停时微微拉长，增加呼吸感 */
   }
 }
 
@@ -567,6 +680,128 @@ button,
   .vp-doc table {
     font-size: 0.9em;
   }
+}
+
+/* ===========================================
+   资源库卡片 - 左侧彩色色条风格
+   =========================================== */
+
+/* 资源卡片基础 */
+.resource-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 20px 20px 24px;
+  background: var(--vp-c-bg) !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: 14px !important;
+  text-decoration: none !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.dark .resource-card {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* 左侧彩色色条 */
+.resource-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 各分类颜色 */
+.resource-card:nth-child(1)::before { background: linear-gradient(180deg, #4dabf7, #228be6); }   /* 编程开发 - 蓝 */
+.resource-card:nth-child(2)::before { background: linear-gradient(180deg, #da77f2, #be4bdb); }   /* 人工智能 - 紫 */
+.resource-card:nth-child(3)::before { background: linear-gradient(180deg, #ff8787, #f06595); }   /* 创意设计 - 粉 */
+.resource-card:nth-child(4)::before { background: linear-gradient(180deg, #ffa94d, #fd7e14); }   /* 效率工具 - 橙 */
+.resource-card:nth-child(5)::before { background: linear-gradient(180deg, #38d9a9, #20c997); }   /* 学术资讯 - 青 */
+.resource-card:nth-child(6)::before { background: linear-gradient(180deg, #ff6b6b, #fa5252); }   /* 生活娱乐 - 红 */
+.resource-card:nth-child(7)::before { background: linear-gradient(180deg, #ffd43b, #fab005); }   /* Linux - 黄 */
+.resource-card:nth-child(8)::before { background: linear-gradient(180deg, #748ffc, #5c7cfa); }   /* Win - 蓝紫 */
+
+/* Hover 效果 */
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--vp-c-brand-1) !important;
+}
+
+.dark .resource-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.resource-card:hover::before {
+  width: 6px;
+}
+
+/* 去除全局超链接的下划线动画 */
+.resource-card::after {
+  display: none !important;
+}
+
+/* 资源卡片图标 */
+.resource-card .icon {
+  font-size: 24px;
+  line-height: 1;
+  padding: 12px;
+  background: var(--vp-c-bg-alt);
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider);
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  flex-shrink: 0;
+}
+
+.resource-card:hover .icon {
+  background: var(--vp-c-bg);
+  transform: scale(1.08);
+  border-color: var(--vp-c-brand-1);
+}
+
+/* 各分类图标 hover 背景色 */
+.resource-card:nth-child(1):hover .icon { background: rgba(77, 171, 247, 0.1); }
+.resource-card:nth-child(2):hover .icon { background: rgba(218, 119, 242, 0.1); }
+.resource-card:nth-child(3):hover .icon { background: rgba(255, 135, 135, 0.1); }
+.resource-card:nth-child(4):hover .icon { background: rgba(255, 169, 77, 0.1); }
+.resource-card:nth-child(5):hover .icon { background: rgba(56, 217, 169, 0.1); }
+.resource-card:nth-child(6):hover .icon { background: rgba(255, 107, 107, 0.1); }
+.resource-card:nth-child(7):hover .icon { background: rgba(255, 212, 59, 0.1); }
+.resource-card:nth-child(8):hover .icon { background: rgba(116, 143, 252, 0.1); }
+
+.resource-card .info {
+  flex: 1;
+  min-width: 0;
+}
+
+.resource-card h3 {
+  margin: 0 !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: var(--vp-c-text-1) !important;
+  line-height: 1.4 !important;
+  border: none !important;
+  padding: 0 !important;
+  transition: color 0.2s ease;
+}
+
+.resource-card:hover h3 {
+  color: var(--vp-c-brand-1) !important;
+}
+
+.resource-card p {
+  margin: 6px 0 0 !important;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
 }
 
 /* ===========================================

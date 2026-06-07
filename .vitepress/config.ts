@@ -1,10 +1,15 @@
 import { defineConfig } from 'vitepress'
+import fs from 'node:fs'
+import path from 'node:path'
 
 export default defineConfig({
   title: "Matrix Dream",
   description: "记录走向梦想的旅程",
   lang: "zh-CN",
   base: '/',
+  sitemap: {
+    hostname: 'https://godream.show'
+  },
   lastUpdated: true,
   ignoreDeadLinks: true,
   themeConfig: {
@@ -64,5 +69,33 @@ export default defineConfig({
     lineNumbers: true,
     math: { inline: ['$', '\\('], block: ['$$', '\\]', 'beginollars', 'endollars'] },
     container: { tip: '提示', warning: '注意', danger: '警告', info: '信息', details: '详情' }
+  },
+
+  async buildEnd(siteConfig) {
+    const pages = siteConfig.pages
+    let llmsIndexContent = `# Matrix Dream - AI Knowledge Base\n\n> 记录走向梦想的旅程。这是提供给 AI Agent 阅读的专属索引文件。\n\n## 站点目录 (Pages)\n`
+    let llmsFullContent = `# Matrix Dream - Full Knowledge Base\n\n`
+
+    for (const page of pages) {
+      if (page.endsWith('.md')) {
+        const mdPath = path.join(siteConfig.srcDir, page)
+        try {
+          const content = fs.readFileSync(mdPath, 'utf-8')
+          // Remove frontmatter for cleaner AI reading
+          const cleanContent = content.replace(/^---[\s\S]*?---\n/, '').trim()
+          const url = `https://godream.show/${page.replace(/\.md$/, '.html')}`
+          
+          llmsIndexContent += `- [${page}](${url})\n`
+          llmsFullContent += `\n\n---\n## File: ${page}\nURL: ${url}\n\n${cleanContent}\n`
+        } catch (e) {
+          console.error(`Error reading ${page}:`, e)
+        }
+      }
+    }
+
+    const distDir = siteConfig.outDir
+    fs.writeFileSync(path.join(distDir, 'llms.txt'), llmsIndexContent)
+    fs.writeFileSync(path.join(distDir, 'llms-full.txt'), llmsFullContent)
+    console.log('🤖 AI-friendly llms.txt and llms-full.txt generated successfully.')
   }
 })
