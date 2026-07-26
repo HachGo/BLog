@@ -9,7 +9,7 @@
 - **Mermaid 图表** - 支持流程图、时序图、状态图等
 - **数学公式** - KaTeX 支持 (`$...$` 和 `$$...$$`)
 - **搜索功能** - 本地全文搜索（186个文档索引）
-- **暗色主题** - 自动适配系统主题
+- **默认主题** - 使用 VitePress 默认主题，支持亮色/暗色模式
 - **自动部署** - GitHub Actions 自动部署到 Pages
 
 ## 项目结构
@@ -22,9 +22,6 @@ BLog/
 │   ├── config.ts               # 主配置文件
 │   ├── public/                 # 静态资源
 │   │   └── favicon.svg         # 网站图标
-│   ├── theme/                  # 自定义主题
-│   │   ├── index.ts            # 主题入口
-│   │   └── custom.css          # 自定义样式
 │   └── utils/                  # 工具函数
 │       ├── sidebar.ts          # 侧边栏生成
 │       └── obsidian-adapter.ts # Obsidian 语法适配
@@ -153,9 +150,9 @@ export default defineConfig({
 })
 ```
 
-### 添加自定义 CSS
+### 配置默认主题
 
-编辑 `.vitepress/theme/custom.css`
+编辑 `.vitepress/config.ts` 中的 `themeConfig`，可配置导航栏、侧边栏、搜索、社交链接等默认主题功能。
 
 ### 添加自定义页面
 

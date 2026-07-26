@@ -14,7 +14,7 @@
 - **部署平台**：GitHub Pages
 - **CI/CD**：GitHub Actions
 - **源格式**：Markdown（兼容Obsidian语法）
-- **主题**：VitePress默认主题 + 自定义CSS
+- **主题**：VitePress 默认主题
 - **数学公式**：KaTeX (markdown-it-mathjax3)
 - **图表支持**：Mermaid (vitepress-plugin-mermaid)
 
@@ -29,10 +29,6 @@ BLog/
 │   ├── public/                 # 静态资源
 │   │   ├── favicon.svg         # 网站图标
 │   │   └── CNAME               # 自定义域名（模板）
-│   ├── theme/                  # 自定义主题
-│   │   ├── index.ts            # 主题入口
-│   │   ├── custom.css          # 自定义样式（Obsidian风格）
-│   │   └── config-helper.ts    # Vue配置辅助
 │   └── utils/                  # 工具函数
 │       ├── sidebar.ts          # 侧边栏生成
 │       ├── obsidian-adapter.ts # Obsidian语法适配
@@ -82,10 +78,6 @@ BLog/
 ├── public/                      # 静态资源目录
 │   ├── favicon.svg              # 网站图标
 │   └── CNAME                    # 自定义域名（模板）
-└── theme/                       # 自定义主题
-    ├── index.ts                 # 主题入口
-    ├── custom.css               # 自定义样式（Obsidian风格）
-    └── config-helper.ts         # Vue配置辅助
 ```
 
 ### 2.2 核心配置文件（config.ts）
@@ -120,27 +112,9 @@ BLog/
    - Mermaid图表
    - 自定义容器（tip/warning/danger/info）
 
-### 2.3 自定义主题（custom.css）
+### 2.3 默认主题
 
-**包含的样式：**
-1. **Obsidian风格优化**
-   - 内部链接样式（虚线下划线）
-   - 标签样式（`#tag`圆角胶囊样式）
-   - 高亮样式（黄色渐变背景）
-   - 引用块样式（左侧蓝色边框）
-
-2. **暗色主题优化**
-   - Obsidian风格的暗色配色
-   - 代码块语法高亮
-
-3. **动画效果**
-   - 页面淡入动画
-   - 链接悬停下划线动画
-   - 卡片悬停效果
-
-4. **响应式设计**
-   - 移动端适配
-   - 打印样式
+站点直接使用 VitePress 默认主题。导航栏、侧边栏、搜索、社交链接、编辑链接和页面大纲均通过 `.vitepress/config.ts` 中的 `themeConfig` 配置。
 
 ---
 
@@ -182,7 +156,7 @@ BLog/
 
 #### 第二阶段：核心功能实现 ✅ 已完成
 - [x] sidebar.ts 侧边栏生成工具
-- [x] custom.css 自定义样式（Obsidian风格）
+- [x] VitePress 默认主题配置
 - [x] obsidian-adapter.ts Obsidian语法适配器
 - [x] 搜索功能（本地搜索）
 - [x] 数学公式支持（KaTeX）
