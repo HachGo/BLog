@@ -30,3 +30,6 @@ npm-debug.log*
 # Environment
 .env
 .env.local
+
+# 本地书签源数据（含公司内网链接与个人账号信息，不发布）
+bookmark/

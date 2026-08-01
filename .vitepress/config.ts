@@ -52,6 +52,8 @@ export default defineConfig({
           { text: '效率工具', link: '/04-资源库/04_效率工具' },
           { text: '学术资讯', link: '/04-资源库/05_学术资讯' },
           { text: '生活娱乐', link: '/04-资源库/06_生活娱乐' },
+          { text: 'AI 智能体', link: '/04-资源库/07_AI智能体' },
+          { text: '云服务', link: '/04-资源库/08_云服务' },
           { text: 'Linux 软件清单', link: '/04-资源库/Linux软件清单' },
           { text: 'Win 必备软件清单', link: '/04-资源库/win必备软件清单' }
         ]
