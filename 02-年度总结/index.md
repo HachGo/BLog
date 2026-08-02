@@ -3,6 +3,7 @@ title: 年度总结
 description: 记录每一年的经历与成长
 date: 2024-01-01
 tags: [年度总结, 回顾]
+protected: true
 ---
 
 # 年度总结

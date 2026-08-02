@@ -4,12 +4,13 @@
   "description": "Obsidian笔记库 - VitePress静态网站",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
+    "docs:dev": "node scripts/restore-pages.mjs && vitepress dev",
+    "docs:build": "node scripts/encrypt-pages.mjs && vitepress build && node scripts/restore-pages.mjs",
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2",
+    "marked": "^18.0.7",
     "vitepress": "^1.3.0",
     "vitepress-plugin-mermaid": "^2.0.17",
     "vitepress-sidebar": "^1.33.1",
