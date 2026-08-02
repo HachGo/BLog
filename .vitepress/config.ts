@@ -17,7 +17,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '知识管理', link: '/01-知识管理' },
-      { text: '思想感悟', link: '/02-思想感悟' },
+      { text: '年度总结', link: '/02-年度总结' },
       { text: '探索世界', link: '/03-探索世界' },
       { text: '资源库', link: '/04-资源库' }
     ],
@@ -26,34 +26,41 @@ export default defineConfig({
         text: '知识管理',
         items: [
           { text: '快速开始', link: '/01-知识管理/快速开始' },
-          { text: 'claude', items: [{ text: 'cc_api_setting', link: '/01-知识管理/01_claude/cc_api_setting' }] }
+          { text: 'claude', items: [{ text: 'cc_api_setting', link: '/01-知识管理/01_claude/cc_api_setting' }] },
+          { text: '思想感悟', items: [
+            { text: '思想感悟', link: '/01-知识管理/01_思想感悟' },
+            { text: '项目管理', items: [
+              { text: '浅谈项目与项目管理岗位', link: '/01-知识管理/01_思想感悟/02_项目管理/002_浅谈项目与项目管理岗位' }
+            ]}
+          ]}
         ]
       }],
-      '/02-思想感悟/': [{
-        text: '思想感悟',
+      '/02-年度总结/': [{
+        text: '年度总结',
         items: [
-          { text: '年度总结', items: [
-            { text: '致逝去的2023', link: '/02-思想感悟/01_年度总结/致逝去的2023' },
-            { text: '致逝去的2024', link: '/02-思想感悟/01_年度总结/致逝去的2024' }
-          ]},
-          { text: '项目管理', items: [
-            { text: '浅谈项目与项目管理岗位', link: '/02-思想感悟/02_项目管理/002_浅谈项目与项目管理岗位' }
-          ]},
-          { text: '功能展示', link: '/02-思想感悟/功能展示' }
+          { text: '年度总结', link: '/02-年度总结' },
+          { text: '致逝去的2023', link: '/02-年度总结/致逝去的2023' },
+          { text: '致逝去的2024', link: '/02-年度总结/致逝去的2024' }
         ]
       }],
-      '/03-探索世界/': [{ text: '探索世界', items: [{ text: '探索世界', link: '/03-探索世界' }] }],
+      '/03-探索世界/': [{
+        text: '探索世界',
+        items: [
+          { text: '探索世界', link: '/03-探索世界' },
+          { text: '读书笔记', link: '/03-探索世界/01_读书笔记' },
+          { text: '旅行', link: '/03-探索世界/02_旅行' },
+          { text: '体验', link: '/03-探索世界/03_体验' }
+        ]
+      }],
       '/04-资源库/': [{
         text: '资源库',
         items: [
-          { text: '编程开发', link: '/04-资源库/01_编程开发' },
-          { text: '人工智能', link: '/04-资源库/02_人工智能' },
+          { text: '人工智能', link: '/04-资源库/01_人工智能' },
+          { text: '编程开发', link: '/04-资源库/02_编程开发' },
           { text: '创意设计', link: '/04-资源库/03_创意设计' },
           { text: '效率工具', link: '/04-资源库/04_效率工具' },
           { text: '学术资讯', link: '/04-资源库/05_学术资讯' },
           { text: '生活娱乐', link: '/04-资源库/06_生活娱乐' },
-          { text: 'AI 智能体', link: '/04-资源库/07_AI智能体' },
-          { text: '云服务', link: '/04-资源库/08_云服务' },
           { text: 'Linux 软件清单', link: '/04-资源库/Linux软件清单' },
           { text: 'Win 必备软件清单', link: '/04-资源库/win必备软件清单' }
         ]
@@ -86,7 +93,7 @@ export default defineConfig({
           // Remove frontmatter for cleaner AI reading
           const cleanContent = content.replace(/^---[\s\S]*?---\n/, '').trim()
           const url = `https://godream.show/${page.replace(/\.md$/, '.html')}`
-          
+
           llmsIndexContent += `- [${page}](${url})\n`
           llmsFullContent += `\n\n---\n## File: ${page}\nURL: ${url}\n\n${cleanContent}\n`
         } catch (e) {

@@ -15,17 +15,15 @@ description: 按主题整理的工具、文章与参考资料索引
 <div class="resource-map" role="img" aria-label="八个资源分类">
     <div class="resource-map__topline">
       <span>索引结构</span>
-      <span>10 个入口</span>
+      <span>8 个入口</span>
     </div>
     <div class="resource-map__grid" aria-hidden="true">
-      <span>DEV</span>
       <span>AI</span>
+      <span>DEV</span>
       <span>UX</span>
       <span>FLOW</span>
       <span>READ</span>
       <span>LIFE</span>
-      <span>AGT</span>
-      <span>CLD</span>
       <span>LIN</span>
       <span>WIN</span>
     </div>
@@ -40,23 +38,23 @@ description: 按主题整理的工具、文章与参考资料索引
 </div>
 
 <nav class="resource-grid" aria-label="资源分类">
-  <a href="/04-资源库/01_编程开发" class="resource-card resource-card--featured">
+  <a href="/04-资源库/01_人工智能" class="resource-card resource-card--featured">
     <span class="resource-card__topline">
-      <span class="resource-card__code">DEV</span>
+      <span class="resource-card__code">AI</span>
       <span class="resource-card__index">01</span>
     </span>
-    <span class="resource-card__title">编程开发</span>
-    <span class="resource-card__description">编程语言、运维技术与开发工具，整理成可直接查阅的工作台。</span>
+    <span class="resource-card__title">人工智能</span>
+    <span class="resource-card__description">大语言模型、AI Agent、绘画创作、算力平台与学习资源的一站式入口。</span>
     <span class="resource-card__action">打开索引 <span aria-hidden="true">↗</span></span>
   </a>
 
-  <a href="/04-资源库/02_人工智能" class="resource-card">
+  <a href="/04-资源库/02_编程开发" class="resource-card">
     <span class="resource-card__topline">
-      <span class="resource-card__code">AI</span>
+      <span class="resource-card__code">DEV</span>
       <span class="resource-card__index">02</span>
     </span>
-    <span class="resource-card__title">人工智能</span>
-    <span class="resource-card__description">模型、教程、绘画工具与算力资源。</span>
+    <span class="resource-card__title">编程开发</span>
+    <span class="resource-card__description">编程语言、运维技术、云服务与开发工具参考。</span>
     <span class="resource-card__action">打开索引 <span aria-hidden="true">↗</span></span>
   </a>
 
@@ -100,30 +98,10 @@ description: 按主题整理的工具、文章与参考资料索引
     <span class="resource-card__action">打开索引 <span aria-hidden="true">↗</span></span>
   </a>
 
-  <a href="/04-资源库/07_AI智能体" class="resource-card">
-    <span class="resource-card__topline">
-      <span class="resource-card__code">AGT</span>
-      <span class="resource-card__index">07</span>
-    </span>
-    <span class="resource-card__title">AI 智能体</span>
-    <span class="resource-card__description">Agent 平台、Skills 市场与智能体开发学习资源。</span>
-    <span class="resource-card__action">打开索引 <span aria-hidden="true">↗</span></span>
-  </a>
-
-  <a href="/04-资源库/08_云服务" class="resource-card">
-    <span class="resource-card__topline">
-      <span class="resource-card__code">CLD</span>
-      <span class="resource-card__index">08</span>
-    </span>
-    <span class="resource-card__title">云服务</span>
-    <span class="resource-card__description">主流云厂商控制台与 AI 平台入口。</span>
-    <span class="resource-card__action">打开索引 <span aria-hidden="true">↗</span></span>
-  </a>
-
   <a href="/04-资源库/Linux软件清单" class="resource-card">
     <span class="resource-card__topline">
       <span class="resource-card__code">LIN</span>
-      <span class="resource-card__index">09</span>
+      <span class="resource-card__index">07</span>
     </span>
     <span class="resource-card__title">Linux 软件</span>
     <span class="resource-card__description">系统、开发、文件管理与终端工具清单。</span>
@@ -133,7 +111,7 @@ description: 按主题整理的工具、文章与参考资料索引
   <a href="/04-资源库/win必备软件清单" class="resource-card">
     <span class="resource-card__topline">
       <span class="resource-card__code">WIN</span>
-      <span class="resource-card__index">10</span>
+      <span class="resource-card__index">08</span>
     </span>
     <span class="resource-card__title">Win 必备</span>
     <span class="resource-card__description">Windows 系统、开发与效率软件清单。</span>

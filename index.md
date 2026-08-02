@@ -11,17 +11,17 @@ hero:
       link: /01-知识管理/快速开始
     - theme: alt
       text: 浏览笔记
-      link: /02-思想感悟
+      link: /02-年度总结
 
 features:
   - icon: 📚
     title: 知识管理
-    details: 技术知识，项目管理，以及其他学习到的知识
+    details: 技术知识，项目管理，以及学习成长中沉淀的思考与感悟
     link: /01-知识管理
-  - icon: 💻
-    title: 思想感悟
-    details: 人生历程中学习总结到的一些思想感悟，包括个人成长，投资理财
-    link: /02-思想感悟
+  - icon: 📝
+    title: 年度总结
+    details: 以年为刻度，回顾走过的路，校准前行的方向
+    link: /02-年度总结
   - icon: 📖
     title: 探索世界
     details: 记录自己探索世界，体验生命历程的一些重要瞬间
