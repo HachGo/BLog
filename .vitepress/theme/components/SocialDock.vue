@@ -57,8 +57,8 @@ async function copyMediaName(label: string, value?: string) {
         class="social-dock__item"
         :class="`social-dock__item--${link.icon}`"
         type="button"
-        :aria-label="`复制 ${link.label} 名称：${link.handle}`"
-        :title="copiedLabel === link.label ? '已复制' : `复制${link.label}名称`"
+        :aria-label="`点击可复制${link.label}名称：${link.handle}`"
+        :title="copiedLabel === link.label ? '已复制' : `点击可复制${link.label}名称：${link.handle}`"
         @click="copyMediaName(link.label, link.copyText)"
       >
         <img
