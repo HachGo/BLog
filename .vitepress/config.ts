@@ -17,9 +17,16 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '知识管理', link: '/01-知识管理' },
-      { text: '年度总结', link: '/02-年度总结' },
-      { text: '探索世界', link: '/03-探索世界' },
-      { text: '资源库', link: '/04-资源库' }
+      { text: '项目', link: '/projects' },
+      {
+        text: '更多',
+        items: [
+          { text: '年度总结', link: '/02-年度总结' },
+          { text: '探索世界', link: '/03-探索世界' },
+          { text: '资源库', link: '/04-资源库' },
+          { text: '个人简历', link: '/about' },
+        ],
+      },
     ],
     sidebar: {
       '/01-知识管理/': [{
@@ -66,7 +73,6 @@ export default defineConfig({
         ]
       }]
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/HachGo/BLog' }],
     search: { provider: 'local' },
     editLink: { pattern: 'https://github.com/HachGo/BLog/edit/main/:path', text: '在 GitHub 上编辑此页' },
     docFooter: { prev: '上一页', next: '下一页' },

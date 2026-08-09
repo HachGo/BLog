@@ -18,61 +18,24 @@ features:
     title: 知识管理
     details: 技术知识，项目管理，以及学习成长中沉淀的思考与感悟
     link: /01-知识管理
+    linkText: 进入知识库
   - icon: 📝
     title: 年度总结
     details: 以年为刻度，回顾走过的路，校准前行的方向
     link: /02-年度总结
+    linkText: 翻阅年记
   - icon: 📖
     title: 探索世界
     details: 记录自己探索世界，体验生命历程的一些重要瞬间
     link: /03-探索世界
+    linkText: 开始漫游
 ---
 
-<div class="nav-grid">
-  <a href="/DEPLOY.md">部署指南 <span class="arrow">→</span></a>
-  <a href="/README.md">项目结构 <span class="arrow">→</span></a>
-  <a href="https://github.com/HachGo/BLog">GitHub 仓库 <span class="arrow">→</span></a>
+<div class="home-index">
+  <p class="home-index__copy">记录正在发生，内容持续生长。</p>
+  <nav class="home-index__links" aria-label="站点辅助入口">
+    <a href="/01-知识管理/快速开始">如何开始阅读</a>
+    <a href="/04-资源库">浏览资源库</a>
+    <a href="/README.md">关于这个站点</a>
+  </nav>
 </div>
-
-<style>
-.nav-grid {
-  display: flex;
-  gap: 32px;
-  justify-content: center;
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid var(--vp-c-divider);
-}
-
-.nav-grid a {
-  color: var(--vp-c-text-2);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: color 0.15s cubic-bezier(0.2, 0, 0, 1);
-}
-
-.nav-grid a:hover {
-  color: var(--vp-c-text-1);
-}
-
-.nav-grid a .arrow {
-  display: inline-block;
-  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
-}
-
-.nav-grid a:hover .arrow {
-  transform: translateX(3px);
-}
-
-@media (max-width: 640px) {
-  .nav-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-}
-</style>

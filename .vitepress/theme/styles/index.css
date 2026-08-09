@@ -1,0 +1,402 @@
+:root {
+  --vp-font-family-base: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-display: "Iowan Old Style", "Baskerville", "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+  --vp-font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --vp-c-brand-1: #176b58;
+  --vp-c-brand-2: #125746;
+  --vp-c-brand-3: #0c4437;
+  --vp-c-brand-soft: rgba(23, 107, 88, 0.12);
+  --vp-c-bg: #fbfaf6;
+  --vp-c-bg-alt: #f5f3ed;
+  --vp-c-bg-elv: #fffefa;
+  --vp-c-bg-soft: #f0eee7;
+  --vp-c-text-1: #202621;
+  --vp-c-text-2: #59625a;
+  --vp-c-text-3: #7b837c;
+  --vp-c-divider: #deddd4;
+  --vp-c-gutter: #e7e5dd;
+  --vp-nav-bg-color: rgba(251, 250, 246, 0.9);
+  --vp-sidebar-bg-color: #f7f5ef;
+  --vp-shadow-1: 0 1px 2px rgba(31, 51, 42, 0.04), 0 1px 3px rgba(31, 51, 42, 0.06);
+  --vp-shadow-2: 0 8px 24px rgba(31, 51, 42, 0.08), 0 2px 5px rgba(31, 51, 42, 0.04);
+  --vp-button-brand-border: var(--vp-c-brand-3);
+  --vp-button-brand-text: #f8fbf8;
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: var(--vp-c-brand-2);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-bg: #093a2f;
+}
+
+.dark {
+  --vp-c-brand-1: #82bbab;
+  --vp-c-brand-2: #a1cdbf;
+  --vp-c-brand-3: #bddcd2;
+  --vp-c-brand-soft: rgba(130, 187, 171, 0.14);
+  --vp-c-bg: #151a17;
+  --vp-c-bg-alt: #191f1b;
+  --vp-c-bg-elv: #1e2520;
+  --vp-c-bg-soft: #202720;
+  --vp-c-text-1: #e7ede7;
+  --vp-c-text-2: #b3beb5;
+  --vp-c-text-3: #87938a;
+  --vp-c-divider: #303a32;
+  --vp-c-gutter: #283129;
+  --vp-nav-bg-color: rgba(21, 26, 23, 0.9);
+  --vp-sidebar-bg-color: #191f1b;
+  --vp-button-brand-border: #bddcd2;
+  --vp-button-brand-text: #10231b;
+  --vp-button-brand-bg: #bddcd2;
+  --vp-button-brand-hover-border: #a1cdbf;
+  --vp-button-brand-hover-bg: #a1cdbf;
+  --vp-button-brand-active-bg: #82bbab;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--vp-c-bg);
+  background-image: radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--vp-c-brand-soft) 52%, transparent), transparent 27rem);
+  font-synthesis: none;
+}
+
+::selection {
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-text-1);
+}
+
+:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
+
+.VPNavBar .wrapper {
+  backdrop-filter: blur(14px);
+}
+
+.VPNavBarTitle .title {
+  font-family: var(--vp-font-family-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.VPNavBarMenuLink {
+  position: relative;
+}
+
+.VPNavBarMenuLink::after {
+  position: absolute;
+  right: 12px;
+  bottom: 11px;
+  left: 12px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.35);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.VPNavBarMenuLink:hover::after,
+.VPNavBarMenuLink.active::after {
+  opacity: 0.8;
+  transform: scaleX(1);
+}
+
+.VPDoc .container {
+  max-width: 1184px;
+}
+
+.vp-doc {
+  font-size: 1rem;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-family: var(--vp-font-family-display);
+  font-weight: 700;
+}
+
+.vp-doc h1 {
+  letter-spacing: -0.045em;
+}
+
+.vp-doc p,
+.vp-doc li {
+  text-wrap: pretty;
+}
+
+.vp-doc blockquote {
+  border-left-color: var(--vp-c-brand-1);
+}
+
+.VPHome .VPHero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.VPHome .VPHero::after {
+  position: absolute;
+  right: max(4vw, 2rem);
+  bottom: 1.7rem;
+  width: min(31vw, 24rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vp-c-brand-1));
+  content: "";
+  opacity: 0.5;
+}
+
+.VPHome .VPHero .container {
+  max-width: 1152px;
+}
+
+.VPHome .VPHero .name,
+.VPHome .VPHero .text {
+  max-width: 14ch;
+  color: var(--vp-c-text-1);
+  font-family: var(--vp-font-family-display);
+  font-weight: 700;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.VPHome .VPHero .name {
+  margin-bottom: 0.52rem;
+  color: var(--vp-c-brand-1);
+  font-family: var(--vp-font-family-mono);
+  font-size: clamp(0.74rem, 1.4vw, 0.91rem);
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.VPHome .VPHero .text {
+  font-size: clamp(3.15rem, 8vw, 6.6rem);
+}
+
+.VPHome .VPHero .tagline {
+  max-width: 36rem;
+  padding-top: 1.45rem;
+  color: var(--vp-c-text-2);
+  font-size: clamp(1rem, 1.8vw, 1.22rem);
+  font-weight: 450;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.VPHome .VPHero .actions {
+  padding-top: 2.15rem;
+}
+
+.VPHome .VPHero .VPButton.medium {
+  border-radius: 0.55rem;
+  padding: 0 1.15rem;
+  line-height: 2.65rem;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.VPHome .VPHero .VPButton.medium:hover {
+  transform: translateY(-2px);
+}
+
+.VPHome .VPFeatures {
+  padding-top: 0;
+}
+
+.VPHome .VPFeatures .container {
+  max-width: 1152px;
+}
+
+.VPHome .VPFeatures .items {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.VPHome .VPFeatures .item,
+.VPHome .VPFeatures .item.grid-3 {
+  width: auto;
+  padding: 0;
+  grid-column: span 4;
+}
+
+.VPHome .VPFeatures .item:nth-child(1) {
+  grid-column: span 5;
+}
+
+.VPHome .VPFeatures .item:nth-child(2) {
+  margin-top: 2.6rem;
+  grid-column: span 3;
+}
+
+.VPHome .VPFeatures .item:nth-child(3) {
+  margin-top: 1.15rem;
+  grid-column: span 4;
+}
+
+.VPHome .VPFeature {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--vp-c-bg) 92%, var(--vp-c-bg-soft));
+  transition: border-color 200ms ease, background-color 200ms ease, transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.VPHome .VPFeature.link:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  transform: translateY(-4px);
+}
+
+.VPHome .VPFeature .box {
+  min-height: 14.5rem;
+  padding: 1.45rem;
+}
+
+.VPHome .VPFeature .icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: auto;
+  border-radius: 0.75rem;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 1.22rem;
+}
+
+.VPHome .VPFeature .title {
+  margin-top: 2.3rem;
+  font-family: var(--vp-font-family-display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.VPHome .VPFeature .details {
+  flex-grow: 0;
+  padding-top: 0.55rem;
+  font-size: 0.87rem;
+  font-weight: 450;
+  line-height: 1.65;
+}
+
+.VPHome .VPFeature .link-text {
+  margin-top: auto;
+  padding-top: 1.2rem;
+}
+
+.VPHome .VPFeature .link-text-value {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.VPHome .VPHomeContent {
+  margin: 0 auto;
+  padding: 4.4rem 24px 0;
+  max-width: 1152px;
+}
+
+.VPHome .VPHomeContent .container {
+  max-width: none;
+}
+
+.home-index {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 1.25rem;
+}
+
+.home-index__copy {
+  margin: 0;
+  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.035em;
+}
+
+.home-index__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.15rem;
+}
+
+.home-index__links a {
+  color: var(--vp-c-text-2);
+  font-size: 0.83rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.home-index__links a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+@media (max-width: 767px) {
+  .VPHome .VPHero {
+    padding-bottom: 4.5rem;
+  }
+
+  .VPHome .VPHero::after {
+    right: 24px;
+    bottom: 1rem;
+    width: 9rem;
+  }
+
+  .VPHome .VPFeatures .items {
+    grid-template-columns: 1fr;
+  }
+
+  .VPHome .VPFeatures .item,
+  .VPHome .VPFeatures .item:nth-child(n) {
+    margin-top: 0;
+    grid-column: auto;
+  }
+
+  .VPHome .VPFeature .box {
+    min-height: 12.4rem;
+  }
+
+  .VPHome .VPHomeContent {
+    padding-top: 3.2rem;
+  }
+
+  .home-index {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-index__links {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 959px) {
+  .VPHome .VPFeatures {
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .VPHome .VPHero .VPButton.medium,
+  .VPHome .VPFeature,
+  .VPNavBarMenuLink::after {
+    transition: none;
+  }
+}
