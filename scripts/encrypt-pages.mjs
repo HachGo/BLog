@@ -10,7 +10,7 @@
  * 4. Backs up the original as .md.protected.bak
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, copyFileSync, constants } from 'node:fs';
 import { join, dirname, basename, relative } from 'node:path';
 import { createCipheriv, randomBytes, pbkdf2Sync } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -137,7 +137,7 @@ for (const dir of PROTECTED_DIRS) {
 
       // Backup original
       const bakPath = filePath + '.protected.bak';
-      copyFileSync(filePath, bakPath);
+      copyFileSync(filePath, bakPath, constants.COPYFILE_EXCL);
 
       // Encrypt body
       const encrypted = encrypt(trimmedBody, password);
@@ -145,12 +145,9 @@ for (const dir of PROTECTED_DIRS) {
       // Determine the relative path for the JSON key
       const relPath = relative(ROOT, filePath).replace(/\.md$/, '');
 
-      // Ensure subdirectories exist in public/encrypted
-      const jsonDir = join(encryptedDir, relative(ROOT, dirPath));
-      mkdirSync(jsonDir, { recursive: true });
-
       // Write encrypted payload to public/encrypted/<relpath>.json
       const jsonPath = join(encryptedDir, relPath + '.json');
+      mkdirSync(dirname(jsonPath), { recursive: true });
       writeFileSync(jsonPath, JSON.stringify(encrypted), 'utf-8');
 
       // Replace .md body with just the component tag

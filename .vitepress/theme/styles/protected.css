@@ -35,6 +35,12 @@
   color: var(--vp-c-text-2);
 }
 
+.protected-password-error {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: var(--vp-c-danger-1);
+}
+
 .protected-input-group {
   display: flex;
   gap: 0.5rem;

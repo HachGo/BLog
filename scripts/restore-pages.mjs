@@ -5,7 +5,7 @@
  * Usage: node scripts/restore-pages.mjs
  */
 
-import { readdirSync, statSync, renameSync, unlinkSync, existsSync, rmSync } from 'node:fs';
+import { readdirSync, renameSync, existsSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -18,29 +18,27 @@ console.log('🔓 正在恢复原始文件...\n');
 
 let restoredCount = 0;
 
-// Restore .md files from backups
-for (const dir of PROTECTED_DIRS) {
-  const dirPath = join(ROOT, dir);
+function restoreDirectory(dirPath) {
+  let entries;
   try {
-    const entries = readdirSync(dirPath);
-    for (const entry of entries) {
-      if (!entry.endsWith('.md.protected.bak')) continue;
-
-      const bakPath = join(dirPath, entry);
-      const origPath = bakPath.replace('.protected.bak', '');
-
-      renameSync(bakPath, origPath);
-      console.log(`  ✅ ${entry.replace('.md.protected.bak', '.md')} — 已恢复`);
-      restoredCount++;
-    }
+    entries = readdirSync(dirPath, { withFileTypes: true });
   } catch (err) {
-    if (err.code === 'ENOENT') {
-      console.log(`  📁 ${dir}/ — 目录不存在，跳过`);
-    } else {
-      throw err;
+    if (err.code === 'ENOENT') return;
+    throw err;
+  }
+  for (const entry of entries) {
+    const fullPath = join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      restoreDirectory(fullPath);
+    } else if (entry.isFile() && entry.name.endsWith('.md.protected.bak')) {
+      renameSync(fullPath, fullPath.slice(0, -'.protected.bak'.length));
+      console.log(`  ✅ ${entry.name.replace('.md.protected.bak', '.md')} — 已恢复`);
+      restoredCount++;
     }
   }
 }
+
+for (const dir of PROTECTED_DIRS) restoreDirectory(join(ROOT, dir));
 
 // Clean up generated encrypted JSON files
 const encryptedDir = join(ROOT, 'public', 'encrypted');

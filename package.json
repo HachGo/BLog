@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "docs:dev": "node scripts/restore-pages.mjs && vitepress dev",
-    "docs:build": "node scripts/encrypt-pages.mjs && vitepress build && node scripts/restore-pages.mjs",
-    "docs:preview": "vitepress preview"
+    "docs:build": "node scripts/build-docs.mjs",
+    "docs:preview": "vitepress preview",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2",

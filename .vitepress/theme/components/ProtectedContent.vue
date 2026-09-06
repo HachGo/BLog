@@ -24,12 +24,17 @@
           placeholder="输入密码..."
           class="protected-input"
           :disabled="submitting"
+          :aria-invalid="!!passwordError"
+          :aria-describedby="passwordError ? 'protected-password-error' : undefined"
           autocomplete="off"
         />
         <button type="submit" class="protected-submit-btn" :disabled="submitting || !password">
           {{ submitting ? '验证中...' : '解密' }}
         </button>
       </form>
+      <p v-if="passwordError" id="protected-password-error" class="protected-password-error" role="alert">
+        {{ passwordError }}
+      </p>
     </div>
 
     <div v-else class="protected-rendered vp-doc" v-html="decrypted"></div>
@@ -46,6 +51,7 @@ const { page } = useData()
 const password = ref('')
 const decrypted = ref(null)
 const error = ref(null)
+const passwordError = ref('')
 const loading = ref(false)
 const submitting = ref(false)
 const passwordInput = ref(null)
@@ -124,37 +130,41 @@ async function tryDecrypt(pw) {
 }
 
 async function handleSubmit() {
-  if (!password.value) return
+  if (!password.value || submitting.value) return
 
   submitting.value = true
   loading.value = true
   error.value = null
+  passwordError.value = ''
 
-  // Brief delay so the loading state is visible
-  await new Promise(r => setTimeout(r, 150))
+  try {
+    // Brief delay so the loading state is visible
+    await new Promise(r => setTimeout(r, 150))
 
-  const result = await tryDecrypt(password.value)
-
-  if (result !== null) {
-    try {
-      sessionStorage.setItem('_protected_pw', password.value)
-    } catch {}
-
-    decrypted.value = marked.parse(result)
+    const result = await tryDecrypt(password.value)
+    if (result !== null) {
+      try {
+        sessionStorage.setItem('_protected_pw', password.value)
+      } catch {}
+      decrypted.value = marked.parse(result)
+    } else {
+      passwordError.value = '密码错误，请重试。'
+      password.value = ''
+    }
+  } catch {
+    error.value = '解密过程中发生错误，请刷新页面后重试。'
+  } finally {
     loading.value = false
-  } else {
-    loading.value = false
-    password.value = ''
+    submitting.value = false
     await nextTick()
     passwordInput.value?.focus()
   }
-
-  submitting.value = false
 }
 
 function retry() {
   decrypted.value = null
   error.value = null
+  passwordError.value = ''
   password.value = ''
   nextTick(() => passwordInput.value?.focus())
 }
