@@ -50,7 +50,7 @@
 |------|------|------|
 | Snipaste | 截图 | https://www.snipaste.com/download.html |
 | EVCapture | 录屏 | https://www.ieway.cn/evcapture.html |
-| Bandicut | 视频剪辑 | https://www.bandicut.com/cn/ |
+| Bandicut | 视频剪辑 | https://www.bandicut.com/ |
 | Bandicam | 录屏 | https://www.bandicam.cn/ |
 
 ### 文档与笔记

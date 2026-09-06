@@ -17,7 +17,6 @@
 |------|------|------|
 | DBeaver | 数据库管理工具 | https://dbeaver.io/ |
 | QEMU | 虚拟机 | https://www.qemu.org/ |
-| UFW | 防火墙管理 | https://help.ubuntu.com/community/UFW |
 
 ## 开发工具
 
@@ -70,7 +69,6 @@
 |------|------|------|
 | LibreOffice | 办公套件 | https://www.libreoffice.org/ |
 | MarkText | Markdown 编辑器 | https://marktext.app/ |
-| VNote | Markdown 笔记 | https://vnotex.github.io/vnote/ |
 
 ### 思维导图
 | 软件 | 备注 | 官网 |

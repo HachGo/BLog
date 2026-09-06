@@ -24,6 +24,7 @@ export default defineConfig({
           { text: '年度总结', link: '/02-年度总结' },
           { text: '探索世界', link: '/03-探索世界' },
           { text: '资源库', link: '/04-资源库' },
+          { text: 'Agent 研究', link: '/05-Agent研究' },
           { text: '个人简历', link: '/about' },
         ],
       },
@@ -70,6 +71,12 @@ export default defineConfig({
           { text: '生活娱乐', link: '/04-资源库/06_生活娱乐' },
           { text: 'Linux 软件清单', link: '/04-资源库/Linux软件清单' },
           { text: 'Win 必备软件清单', link: '/04-资源库/win必备软件清单' }
+        ]
+      }],
+      '/05-Agent研究/': [{
+        text: 'Agent 研究',
+        items: [
+          { text: '首页', link: '/05-Agent研究' }
         ]
       }]
     },

@@ -7,6 +7,7 @@
     "docs:dev": "node scripts/restore-pages.mjs && vitepress dev",
     "docs:build": "node scripts/build-docs.mjs",
     "docs:preview": "vitepress preview",
+    "check:links": "node scripts/check-links.mjs",
     "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
