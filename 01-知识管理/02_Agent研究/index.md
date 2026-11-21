@@ -18,6 +18,11 @@ description: 终端编码 Agent、Harness 与相关开源项目研究入口
 - [DeepSeek Harness（dsh）](https://github.com/deepseek-ai/deepseek-harness) — DeepSeek 开源的 Agent Harness，一切皆插件（Cordis），可用 `npx @deepseek-ai/dsh web` 启动
 - [hello-generic-agent](https://github.com/datawhalechina/hello-generic-agent) — Datawhale Generic Agent（GA）入门教程，覆盖安装配置、浏览器自动化、记忆与自我进化
 
+## 能力评估与产业研究
+
+- [AI 能力与产业数据](./AI能力与产业数据) — AI Index、Epoch、METR 与能源报告，学习指标定义、版本与适用边界。
+- [AI 工业革命学习路线图](../04_专题学习/AI工业革命学习路线图) — 将 Agent 能力评估与技术史、企业采用及经济研究连接起来。
+
 ## 后续笔记
 
 本栏目后续会按工具补充安装、对比与实践笔记。当前页先作为索引与入口。
