@@ -3,6 +3,7 @@ import ProtectedContent from './components/ProtectedContent.vue'
 import ProjectShowcase from './components/ProjectShowcase.vue'
 import Layout from './Layout.vue'
 import './styles/index.css'
+import './styles/docs.css'
 
 export default {
   extends: DefaultTheme,

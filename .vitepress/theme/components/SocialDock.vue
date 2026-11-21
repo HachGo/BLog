@@ -118,11 +118,11 @@ async function copyMediaName(label: string, value?: string) {
   object-fit: contain;
 }
 
-:global(.dark) .social-dock__item--github .social-dock__icon {
+:global(.dark .social-dock__item--github .social-dock__icon) {
   filter: invert(1);
 }
 
-:global(.dark) .social-dock__item--material-symbols\:news .social-dock__icon {
+:global(.dark .social-dock__item--material-symbols\:news .social-dock__icon) {
   filter: invert(1);
 }
 

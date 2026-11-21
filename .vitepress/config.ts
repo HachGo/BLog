@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import fs from 'node:fs'
 import path from 'node:path'
+import taskLists from 'markdown-it-task-lists'
 
 export default defineConfig({
   title: "Matrix Dream",
@@ -33,25 +34,25 @@ export default defineConfig({
         text: '知识管理和学习',
         items: [
           { text: '快速开始', link: '/01-知识管理/快速开始' },
-          { text: 'claude', items: [{ text: 'cc_api_setting', link: '/01-知识管理/01_claude/cc_api_setting' }] },
-          { text: '思想感悟', items: [
+          { text: 'claude', collapsed: false, items: [{ text: 'cc_api_setting', link: '/01-知识管理/01_claude/cc_api_setting' }] },
+          { text: '思想感悟', collapsed: false, items: [
             { text: '思想感悟', link: '/01-知识管理/01_思想感悟' },
-            { text: '项目管理', items: [
+            { text: '项目管理', collapsed: false, items: [
               { text: '浅谈项目与项目管理岗位', link: '/01-知识管理/01_思想感悟/02_项目管理/002_浅谈项目与项目管理岗位' }
             ]}
           ]},
-          { text: '专题学习', link: '/01-知识管理/04_专题学习/', items: [
+          { text: '专题学习', link: '/01-知识管理/04_专题学习/', collapsed: false, items: [
             { text: 'AI 工业革命学习路线图', link: '/01-知识管理/04_专题学习/AI工业革命学习路线图' },
             { text: '哲学与自我', link: '/01-知识管理/04_专题学习/01_哲学与自我/' },
-            { text: '产品与商业', link: '/01-知识管理/04_专题学习/02_产品与商业/', items: [
+            { text: '产品与商业', link: '/01-知识管理/04_专题学习/02_产品与商业/', collapsed: false, items: [
               { text: '技术革命、资本与生产率', link: '/01-知识管理/04_专题学习/02_产品与商业/技术革命资本与生产率' },
               { text: 'Anthropic 公司与 AI 革命研究', link: '/01-知识管理/04_专题学习/02_产品与商业/Anthropic公司与AI革命研究' }
             ]},
-            { text: '历史与社会', link: '/01-知识管理/04_专题学习/03_历史与社会/', items: [
+            { text: '历史与社会', link: '/01-知识管理/04_专题学习/03_历史与社会/', collapsed: false, items: [
               { text: '工业革命与技术发展史', link: '/01-知识管理/04_专题学习/03_历史与社会/工业革命与技术发展史' }
             ]}
           ]},
-          { text: 'Agent 研究', link: '/01-知识管理/02_Agent研究/', items: [
+          { text: 'Agent 研究', link: '/01-知识管理/02_Agent研究/', collapsed: false, items: [
             { text: 'AI 能力与产业数据', link: '/01-知识管理/02_Agent研究/AI能力与产业数据' }
           ]},
           { text: '数据处理流程', link: '/01-知识管理/03_数据处理流程/' }
@@ -103,6 +104,9 @@ export default defineConfig({
   },
 
   markdown: {
+    config(md) {
+      md.use(taskLists, { label: true })
+    },
     theme: 'dracula',
     lineNumbers: true,
     math: { inline: ['$', '\\('], block: ['$$', '\\]', 'beginollars', 'endollars'] },
