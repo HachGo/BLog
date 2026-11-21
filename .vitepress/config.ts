@@ -16,22 +16,21 @@ export default defineConfig({
     logo: '/favicon.svg',
     nav: [
       { text: '首页', link: '/' },
-      { text: '知识管理', link: '/01-知识管理' },
+      { text: '知识管理和学习', link: '/01-知识管理' },
       { text: '项目', link: '/projects' },
       {
         text: '更多',
         items: [
           { text: '年度总结', link: '/02-年度总结' },
-          { text: '探索世界', link: '/03-探索世界' },
+          { text: '探索世界与未来', link: '/03-探索世界' },
           { text: '资源库', link: '/04-资源库' },
-          { text: 'Agent 研究', link: '/05-Agent研究' },
           { text: '个人简历', link: '/about' },
         ],
       },
     ],
     sidebar: {
       '/01-知识管理/': [{
-        text: '知识管理',
+        text: '知识管理和学习',
         items: [
           { text: '快速开始', link: '/01-知识管理/快速开始' },
           { text: 'claude', items: [{ text: 'cc_api_setting', link: '/01-知识管理/01_claude/cc_api_setting' }] },
@@ -40,7 +39,14 @@ export default defineConfig({
             { text: '项目管理', items: [
               { text: '浅谈项目与项目管理岗位', link: '/01-知识管理/01_思想感悟/02_项目管理/002_浅谈项目与项目管理岗位' }
             ]}
-          ]}
+          ]},
+          { text: '专题学习', link: '/01-知识管理/04_专题学习/', items: [
+            { text: '哲学与自我', link: '/01-知识管理/04_专题学习/01_哲学与自我/' },
+            { text: '产品与商业', link: '/01-知识管理/04_专题学习/02_产品与商业/' },
+            { text: '历史与社会', link: '/01-知识管理/04_专题学习/03_历史与社会/' }
+          ]},
+          { text: 'Agent 研究', link: '/01-知识管理/02_Agent研究/' },
+          { text: '数据处理流程', link: '/01-知识管理/03_数据处理流程/' }
         ]
       }],
       '/02-年度总结/': [{
@@ -52,9 +58,9 @@ export default defineConfig({
         ]
       }],
       '/03-探索世界/': [{
-        text: '探索世界',
+        text: '探索世界与未来',
         items: [
-          { text: '探索世界', link: '/03-探索世界' },
+          { text: '探索世界与未来', link: '/03-探索世界' },
           { text: '读书笔记', link: '/03-探索世界/01_读书笔记' },
           { text: '旅行', link: '/03-探索世界/02_旅行' },
           { text: '体验', link: '/03-探索世界/03_体验' }
@@ -74,9 +80,11 @@ export default defineConfig({
         ]
       }],
       '/05-Agent研究/': [{
-        text: 'Agent 研究',
+        text: '知识管理和学习',
         items: [
-          { text: '首页', link: '/05-Agent研究' }
+          { text: '栏目首页', link: '/01-知识管理' },
+          { text: 'Agent 研究', link: '/01-知识管理/02_Agent研究/' },
+          { text: '数据处理流程', link: '/01-知识管理/03_数据处理流程/' }
         ]
       }]
     },

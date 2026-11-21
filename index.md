@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: 探索世界
+  name: 探索世界与未来
   text: 体验生命的旅程
   tagline: 愿每一个生命都能找到属于自己的独一无二的生命旅程
   actions:
@@ -15,8 +15,8 @@ hero:
 
 features:
   - icon: 📚
-    title: 知识管理
-    details: 技术知识，项目管理，以及学习成长中沉淀的思考与感悟
+    title: 知识管理和学习
+    details: 知识管理、学习实践、Agent 研究与数据处理流程，记录学习成长中的思考与感悟
     link: /01-知识管理
     linkText: 进入知识库
   - icon: 📝
@@ -25,8 +25,8 @@ features:
     link: /02-年度总结
     linkText: 翻阅年记
   - icon: 📖
-    title: 探索世界
-    details: 记录自己探索世界，体验生命历程的一些重要瞬间
+    title: 探索世界与未来
+    details: 通过阅读、旅行与体验认识世界，探索技术、社会与未来的变化
     link: /03-探索世界
     linkText: 开始漫游
 ---
